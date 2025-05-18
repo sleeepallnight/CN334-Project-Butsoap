@@ -25,5 +25,5 @@ urlpatterns = [
     path('api/', include('product_management.urls')),
     path('api/cart/', include('cart_management.urls')),
     path('api/order/', include('order_management.urls')),
-    path('', lambda request:HttpResponse("Hi"))
+    path('', lambda request: HttpResponse("Hi"))
 ]

@@ -6,4 +6,4 @@ COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 COPY . /app/
 
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:$PORT"]
+CMD ["sh", "-c", "python manage.py migrate && gunicorn product_service.wsgi:application --bind 0.0.0.0:$PORT"]
