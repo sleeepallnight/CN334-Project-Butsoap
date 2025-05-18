@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
 
 urlpatterns = [
     path('jet/', include('jet.urls', 'jet')),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('api/', include('product_management.urls')),
     path('api/cart/', include('cart_management.urls')),
     path('api/order/', include('order_management.urls')),
+    path('', lambda request:HttpResponse("Hi"))
 ]
