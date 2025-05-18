@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   db:
     image: postgres:15
@@ -24,21 +22,6 @@ services:
       - "3341:8001"
     env_file:
       - ./env/product.env
-    depends_on:
-      - db
-    networks:
-      - backend
-
-  user_api:
-    build: ./user_service
-    command: python manage.py runserver 0.0.0.0:8002
-    volumes:
-      - ./user_service:/app
-    working_dir: /app
-    ports:
-      - "3342:8002"
-    env_file:
-      - ./env/user.env
     depends_on:
       - db
     networks:
